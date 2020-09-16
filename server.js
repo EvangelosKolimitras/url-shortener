@@ -25,7 +25,14 @@ app
 	})
 
 app
-	.get("/:sUrl", async (req, res) => {
-		const sUrl = await Url.find({ shortenedUrl: req.params.shortUrls })
+	.get("/:shortenedUrl", async (req, res) => {
+		const sUrl = await Url.findOne({ shortenedUrl: req.params.shortenedUrl })
+		if (sUrl === null) {
+			return res.sendStatus(404)
+		}
+		sUrl.numberOfClicks++;
+		sUrl.save()
+
+		res.redirect(sUrl.originalUrl)
 	})
 app.listen(...portListener(process.env.PORT));
