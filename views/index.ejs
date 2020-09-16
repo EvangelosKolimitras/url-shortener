@@ -21,13 +21,15 @@
       <div class="mt-5 jumbotron shadow p-3 mb-5 bg-white rounded">
         <h1 class="display-4"><h1><%= title %></h1></h1>
         <p class="font-weight-lighter"><%= description %></p>
-        <form action="" method="POST">
+        <form action="/shortUrls" method="POST">
           <div class="form-group">
             <label for="url-id" class="sr-only">Url</label>
             <input
+              autofocus
               required
               type="url"
               class="form-control mr-2 col"
+              name="originalUrl"
               id="url-id"
               aria-describedby="urlHelp"
             />
@@ -35,15 +37,25 @@
           <button type="submit" class="btn btn-primary">Schrink me</button>
         </form>
       </div>
-      <table class="table table-borderless table-hover">
+      <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Original Url</th>
-            <th scope="col">Shringed Url</th>
+            <th scope="col">Shrinked Url</th>
             <th scope="col">No. Clicks</th>
           </tr>
         </thead>
+        <tbody>
+          <% urls.forEach( url => { %>
+          <tr>
+            <td><a href="<%= url.originalUrl %>"><%= url.originalUrl %></a></td>
+            <td>
+              <a href="<%= url.shortenedUrl %>"><%= url.shortenedUrl %></a>
+            </td>
+            <td><%= url.numberOfClicks %></td>
+          </tr>
+          <% }) %>
+        </tbody>
       </table>
     </div>
   </body>
