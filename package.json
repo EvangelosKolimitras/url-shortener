@@ -1,0 +1,19 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devS": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Evangelos Kolimitras <evangeloskolimitras@outlook.com>",
+  "license": "ISC",
+  "repository": "https://github.com/EvangelosKolimitras/url-shortener.git",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.5",
+    "nodemon": "^2.0.4"
+  }
+}

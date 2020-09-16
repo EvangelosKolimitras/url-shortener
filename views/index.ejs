@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <title><%=title %></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="mt-5 jumbotron shadow p-3 mb-5 bg-white rounded">
+        <h1 class="display-4"><h1><%= title %></h1></h1>
+        <p class="font-weight-lighter"><%= description %></p>
+        <form action="" method="POST">
+          <div class="form-group">
+            <label for="url-id" class="sr-only">Url</label>
+            <input
+              required
+              type="url"
+              class="form-control mr-2 col"
+              id="url-id"
+              aria-describedby="urlHelp"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Schrink me</button>
+        </form>
+      </div>
+      <table class="table table-borderless table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Original Url</th>
+            <th scope="col">Shringed Url</th>
+            <th scope="col">No. Clicks</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </body>
+</html>
