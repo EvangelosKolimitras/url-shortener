@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Original Url</th>
+      <th scope="col">Shrinked Url</th>
+      <th scope="col">No. Clicks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% urls.forEach( url => { %>
+    <tr>
+      <td><a href="<%= url.originalUrl %>"><%= url.originalUrl %></a></td>
+      <td>
+        <a href="<%= url.shortenedUrl %>"><%= url.shortenedUrl %></a>
+      </td>
+      <td><%= url.numberOfClicks %></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
