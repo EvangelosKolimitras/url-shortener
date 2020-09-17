@@ -1,1 +1,27 @@
+.iconsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+}
+
+.wrapper .h1 {
+  position: absolute;
+  color: darkgrey;
+  width: 100%;
+  text-align: center;
+  left: 50%;
+  bottom: -25px;
+  transform: translateX(-50%);
+}
+
+.wrapper #f20e0c25-d928-42cc-98d1-13cc230663ea {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
