@@ -1,7 +1,6 @@
 const express = require('express');
+require('./connection/connection');
 const app = express();
-const mongoose = require("mongoose");
-let connection = mongoose.connect("mongodb://localhost/urlShortener", { useNewUrlParser: true, useUnifiedTopology: true });
 const routes = require("./routes/routes.js")
 const portListener = require("./utils/portListener");
 
