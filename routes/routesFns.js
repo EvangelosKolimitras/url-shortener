@@ -1,37 +1,66 @@
 const Url = require("../models/urls");
 async function postShortenedUrl(req, res) {
-	await Url
-		.create({ originalUrl: req.body.originalUrl })
-	res
-		.redirect("/")
+	try {
+		await Url
+			.create({ originalUrl: req.body.originalUrl })
+		res
+			.redirect("/")
+	} catch (error) {
+		console.error(error)
+	}
 }
 
 async function getShortenedUrl(req, res) {
-	const sUrl = await Url
-		.findOne({ shortenedUrl: req.params.shortenedUrl })
-	if (sUrl === null) {
-		return res.sendStatus(404)
+	try {
+		const sUrl = await Url
+			.findOne({ shortenedUrl: req.params.shortenedUrl })
+		if (sUrl === null) {
+			return res.sendStatus(404)
+		}
+		sUrl.numberOfClicks++;
+		sUrl
+			.save()
+		res
+			.redirect(sUrl.originalUrl)
+	} catch (error) {
+		console.error(error)
 	}
-	sUrl.numberOfClicks++;
-	sUrl
-		.save()
-	res
-		.redirect(sUrl.originalUrl)
 }
 
 async function getUrls(req, res) {
-	const urls = await Url
-		.find()
-	res
-		.render("index", {
-			title: "Url-Schinker",
-			description: "A simple to use url schortener builded with Node, Express and Mongoose.",
-			urls
-		})
+	try {
+		const urls = await Url
+			.find()
+		res
+			.render("index", {
+				title: "Shrinkme",
+				description: "A simple to use url shortener builded with Node, Express and Mongoose.",
+				urls
+			})
+	} catch (error) {
+		console.error(error)
+	}
 }
+
+async function deleteUrls(req, res) {
+	try {
+		console.log(req.params);
+		await Url.deleteMany({}, function (err, result) {
+			if (err) {
+				res.send(err);
+			} else {
+				res.send(result);
+			}
+		});
+	} catch (error) {
+		console.error(error)
+	}
+}
+
 module
 	.exports = {
 	getUrls,
 	getShortenedUrl,
-	postShortenedUrl
+	postShortenedUrl,
+	deleteUrls
 }

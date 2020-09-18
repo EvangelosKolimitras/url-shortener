@@ -1,6 +1,6 @@
 const express = require('express')
 const routes = express.Router();
-const { getUrls, getShortenedUrl, postShortenedUrl } = require("./routesFns")
+const { getUrls, getShortenedUrl, postShortenedUrl, deleteUrls } = require("./routesFns")
 
 routes
 	.get("/", getUrls);
@@ -8,5 +8,7 @@ routes
 	.get("/:shortenedUrl", getShortenedUrl);
 routes
 	.post("/shortUrls", postShortenedUrl);
-
-module.exports = routes;
+routes
+	.delete("/deleteUrls", deleteUrls);
+module
+	.exports = routes;
