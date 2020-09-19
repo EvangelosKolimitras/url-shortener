@@ -6,7 +6,7 @@ Instructions
 Run
 
 - ` npm install`
-- ` npm run devS`
+- ` npm start`
 
 Requirements:
 
