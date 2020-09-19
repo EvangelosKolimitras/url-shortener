@@ -1,3 +1,4 @@
 const mongoose = require("mongoose");
-let connection = mongoose.connect("mongodb://localhost/urlShortener", { useNewUrlParser: true, useUnifiedTopology: true });
+let CONNECTION_STRING = `mongodb://localhost/${process.env.DB}`
+let connection = mongoose.connect(CONNECTION_STRING, { useNewUrlParser: true, useUnifiedTopology: true });
 module.exports = connection
